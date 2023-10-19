@@ -1,6 +1,9 @@
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 2000))
 
-export default function Home() {
-  return (
-   <h1>Hello Peach!</h1>
-  )
+  const response = await fetch('https://api.github.com/users/Ca-byte')
+  const user = await  response.json
+
+  return <pre>{JSON.stringify(user)}</pre>
+  
 }
